@@ -4,7 +4,7 @@
 
   [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
-  Generates a basic readme file with your answers from termina
+  Generates a basic readme file with your answers from terminal
 
   ## Table of Contents
   
