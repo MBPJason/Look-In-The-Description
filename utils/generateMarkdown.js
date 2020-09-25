@@ -21,6 +21,7 @@ function generateMarkdown(data) {
   }
   if (data.license === "ISC") {
     licenseBadge = `[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)`;
+  }
 
   return `# ${data.title}
 
@@ -64,9 +65,9 @@ function generateMarkdown(data) {
   * To contact me for any additional questions:
     
     * My GitHub username is ${data.username}
-    * The link to my page is [here](${data.link})
+    * The link to my page is [here](https://www.github.com/${data.username})
     * To email me my email is ${data.email}
-`;
+`
 }
 
 module.exports = generateMarkdown;

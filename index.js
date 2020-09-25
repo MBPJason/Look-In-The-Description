@@ -15,22 +15,14 @@ const questions = [
   "Please choose from the following licenses.",
   "What is your GitHub username?",
   "What is your email address?",
-
-  {
-    repeatPrompts: [
-      "Please enter the steps should they take",
-      "Anymore steps?",
-    ],
-  },
 ];
 
 // function to write README file
-function writeToFile(fileName, data) {}
 
 // function to initialize program
 async function readmeDetails() {
   try {
-    const basicInput = await inquirer.prompt([
+    const data = await inquirer.prompt([
       {
         type: "input",
         message: questions[0],
@@ -43,8 +35,23 @@ async function readmeDetails() {
       },
       {
         type: "input",
+        message: questions[2],
+        name: "installation",
+      },
+      {
+        type: "input",
         message: questions[3],
         name: "usage",
+      },
+      {
+        type: "input",
+        message: questions[4],
+        name: "contributing",
+      },
+      {
+        type: "input",
+        message: questions[5],
+        name: "tests",
       },
       {
         type: "list",
@@ -58,27 +65,29 @@ async function readmeDetails() {
           "IBM",
           "ISC",
         ],
-        default: choices[6]
       },
+      
       {
         type: "input",
         message: questions[7],
-        name: "title",
+        name: "username",
       },
       {
         type: "input",
         message: questions[8],
         name: "email",
       },
+
+
     ]);
 
-    const confirm = await inquirer.prompt([
-      {
-        type: list,
-        message: questions[6],
-        
-      },
-    ]);
+    const readme = generateMarkdown(data);
+
+    fs.writeFile("readme.md", readme, (err) => {
+      if (err) throw console.log("write file went bad");
+      console.log("You are in the system");
+    });
+    
   } catch (err) {
     console.log("Oops something went wrong");
     console.log(err);
