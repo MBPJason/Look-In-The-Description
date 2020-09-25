@@ -65,20 +65,18 @@ async function readmeDetails() {
           "IBM",
           "ISC",
         ],
+        name: "license"
       },
-      
       {
         type: "input",
         message: questions[7],
-        name: "username",
+        name: "github",
       },
       {
         type: "input",
         message: questions[8],
         name: "email",
       },
-
-
     ]);
 
     const readme = generateMarkdown(data);
